@@ -1,0 +1,26 @@
+project: Earning Day Stock Prediction
+
+PATH
+
+data: 
+  raw:
+  external:
+  interim:
+  processed:
+
+model:
+  XGBoost:
+    hyperparameter:
+      n_estimators: 100            # Number of boosting rounds
+      learning_rate: 0.05          # Step size shrinkage (aka eta)
+      max_depth: 6                 # Max depth of trees
+      subsample: 0.8               # Row subsampling for each tree
+      colsample_bytree: 0.8        # Feature subsampling per tree
+      gamma: 0                     # Minimum loss reduction to make a split
+      min_child_weight: 1          # Minimum sum of instance weight (hessian)
+      objective: binary:logistic   # Regression/classification objective
+      eval_metric: logloss         # Metric for early stopping/evaluation
+      reg_alpha: 0                 # L1 regularization (sparse features)
+      reg_lambda: 1                # L2 regularization (overfitting control)
+      random_state: 42             # Seed for reproducibility
+      early_stopping_rounds: 10    # For early stopping during validation
