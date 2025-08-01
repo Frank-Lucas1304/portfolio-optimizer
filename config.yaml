@@ -19,20 +19,18 @@ paths:
 
 files:
   external:
-    - name: "sp500_constituent.csv"  
+    sp500: 
+      name: "sp500_constituent.csv"  
   raw:
-    - metric: 
-          name: "key_metrics.csv"
-    - ratios: "ratios.csv"
-    - stock: "stock_hist.csv"
-
-  interim:
-    - name: "growth.csv"
-    - name: "ratios.csv"
-    - name: "stock_hist.csv"
-
+    metric: 
+      name: "key_metrics.csv"
+    ratios: 
+      name: "ratios.csv"
+    stock:
+      name: "stock_hist.csv"
   processed:
-    - name: "database.csv"
+    database:
+      name: "database.csv"
 
 
 variables:
