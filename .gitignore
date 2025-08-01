@@ -1,6 +1,6 @@
 # Ignore data and models
 02_data/
-05_models/
+
 
 # Python artifacts
 __pycache__/
