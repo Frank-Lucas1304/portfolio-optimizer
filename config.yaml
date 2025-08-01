@@ -1,26 +1,39 @@
 project: Earning Day Stock Prediction
 
-PATH
+paths:
+  data:
+    directories:
+      external: 
+        description: External data sources (e.g., news sentiment, weather, etc.)
+        path: "{data_directory}/00_external"
+      raw: 
+        description: Raw, unprocessed data (e.g., CSV, raw stock prices)
+        path: "{data_directory}/01_raw"
+      interim: 
+        description: Intermediate data after initial cleaning or transformations
+        path: "{data_directory}/02_interim"
+      processed: 
+        description: Final, cleaned, and feature-engineered dataset for modeling
+        path: "{data_directory}/03_processed"
 
-data: 
-  raw:
+
+files:
   external:
-  interim:
-  processed:
+    - name: "sp500_constituent.csv"  
+  raw:
+    - metric: 
+          name: "key_metrics.csv"
+    - ratios: "ratios.csv"
+    - stock: "stock_hist.csv"
 
-model:
-  XGBoost:
-    hyperparameter:
-      n_estimators: 100            # Number of boosting rounds
-      learning_rate: 0.05          # Step size shrinkage (aka eta)
-      max_depth: 6                 # Max depth of trees
-      subsample: 0.8               # Row subsampling for each tree
-      colsample_bytree: 0.8        # Feature subsampling per tree
-      gamma: 0                     # Minimum loss reduction to make a split
-      min_child_weight: 1          # Minimum sum of instance weight (hessian)
-      objective: binary:logistic   # Regression/classification objective
-      eval_metric: logloss         # Metric for early stopping/evaluation
-      reg_alpha: 0                 # L1 regularization (sparse features)
-      reg_lambda: 1                # L2 regularization (overfitting control)
-      random_state: 42             # Seed for reproducibility
-      early_stopping_rounds: 10    # For early stopping during validation
+  interim:
+    - name: "growth.csv"
+    - name: "ratios.csv"
+    - name: "stock_hist.csv"
+
+  processed:
+    - name: "database.csv"
+
+
+variables:
+  data_directory: "02_data"
